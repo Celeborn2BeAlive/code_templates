@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Blender make.bat (nobuild)",
+      "type": "shell",
+      "command": "${workspaceFolder}/make.bat nobuild nobuildinfo ${input:blenderConfig}",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Blender make.bat (withbuildinfo, nobuild)",
+      "type": "shell",
+      "command": "${workspaceFolder}/make.bat nobuild ${input:blenderConfig}",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Blender make.bat (nobuild, set build dir)",
+      "type": "shell",
+      "command": "${workspaceFolder}/make.bat nobuild nobuildinfo ${input:blenderConfig} builddir ${input:blenderBuildDir}",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Blender make.bat (build)",
+      "type": "shell",
+      "command": "${workspaceFolder}/make.bat nobuildinfo ${input:blenderConfig}",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Blender compile bpy python module",
+      "type": "shell",
+      "command": "${workspaceFolder}/make.bat lite bpy",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Update repository",
+      "type": "shell",
+      "command": "${workspaceFolder}/make.bat update",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "id": "blenderConfig",
+      "description": "What configuration ?",
+      "options": [
+        "full",
+        "release",
+        "lite",
+        "headless",
+        "cycles",
+        "developer"
+      ],
+      "default": "full"
+    },
+    {
+      "type": "promptString",
+      "id": "blenderBuildDir",
+      "description": "Path to build directory"
+    }
+  ]
+}
