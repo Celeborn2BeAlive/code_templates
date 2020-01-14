@@ -1,5 +1,6 @@
 import os, sys, random
 
+# Course here: https://www.python-course.eu/pipes.php with many advanced examples in python
 
 def deviser(max):
     fh = open("deviser.log","w")
